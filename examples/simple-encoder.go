@@ -1,11 +1,10 @@
 //go:build ignore
-// +build ignore
 
 // Copyright 2015, Klaus Post, see LICENSE for details.
 //
 // Simple encoder example
 //
-// The encoder encodes a simgle file into a number of shards
+// The encoder encodes a simple file into a number of shards
 // To reverse the process see "simpledecoder.go"
 //
 // To build an executable use:
@@ -39,7 +38,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"io/ioutil"
 	"os"
 	"path/filepath"
 
@@ -79,7 +77,7 @@ func main() {
 	checkErr(err)
 
 	fmt.Println("Opening", fname)
-	b, err := ioutil.ReadFile(fname)
+	b, err := os.ReadFile(fname)
 	checkErr(err)
 
 	// Split the file into equally sized shards.
@@ -100,7 +98,7 @@ func main() {
 		outfn := fmt.Sprintf("%s.%d", file, i)
 
 		fmt.Println("Writing to", outfn)
-		err = ioutil.WriteFile(filepath.Join(dir, outfn), shard, 0644)
+		err = os.WriteFile(filepath.Join(dir, outfn), shard, 0644)
 		checkErr(err)
 	}
 }

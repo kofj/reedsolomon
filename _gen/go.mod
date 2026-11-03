@@ -1,5 +1,16 @@
 module github.com/klauspost/reedsolomon/_gen
 
-go 1.14
+go 1.25
 
-require github.com/mmcloughlin/avo v0.2.0
+require (
+	github.com/fwessels/avxTwo2sve v0.0.0-20240611172111-6b8528700471
+	github.com/fwessels/sve-as v0.0.0-20240817192210-83d5dbff9505
+	github.com/klauspost/asmfmt v1.3.2
+	github.com/mmcloughlin/avo v0.6.0
+)
+
+require (
+	golang.org/x/mod v0.21.0 // indirect
+	golang.org/x/sync v0.8.0 // indirect
+	golang.org/x/tools v0.25.1 // indirect
+)
